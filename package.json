@@ -7,15 +7,15 @@
     "normalize.css": "^8.0.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
-    "react-scripts": "^5.0.1"
+    "react-scripts": "3.4.3"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
-    "storybook": "start-storybook -p 9009 -s public --ci",
-    "build-storybook": "build-storybook -s public"
+    "start": "NODE_OPTIONS=--openssl-legacy-provider react-scripts start",
+    "build": "NODE_OPTIONS=--openssl-legacy-provider react-scripts build",
+    "test": "NODE_OPTIONS=--openssl-legacy-provider react-scripts test",
+    "eject": "NODE_OPTIONS=--openssl-legacy-provider react-scripts eject",
+    "storybook": "NODE_OPTIONS=--openssl-legacy-provider start-storybook -p 9009 -s public --ci",
+    "build-storybook": "NODE_OPTIONS=--openssl-legacy-provider build-storybook -s public"
   },
   "browserslist": {
     "production": [
@@ -39,7 +39,7 @@
     "@testing-library/jest-dom": "^4.0.0",
     "@testing-library/react": "^8.0.7",
     "babel-loader": "^8.0.5",
-    "node-sass": "^4.14.0"
+    "sass": "^1.51.0"
   },
   "jest": {
     "watchPathIgnorePatterns": [
