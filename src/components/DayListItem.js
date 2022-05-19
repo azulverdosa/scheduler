@@ -1,10 +1,12 @@
 import React from 'react';
 
-export default function DayListItem(props) {
+export default function DayListItem({ name, selected, setDay, spots }) {
+  const clickHandler = (event) => setDay(name);
+
   return (
-    <li>
-      <h2 className="text--regular">Day Name</h2>
-      <h3 className="text--light">X spots remaining</h3>
+    <li onClick={clickHandler} className={name}>
+      <h2 className="text--regular">{name}</h2>
+      <h3 className="text--light">{spots} spots remaining</h3>
     </li>
   );
 }
