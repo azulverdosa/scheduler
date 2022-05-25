@@ -1,14 +1,17 @@
 import React from 'react';
+import './InterviewerListItem.scss';
+import cx from 'classnames';
 
-const InterviewerListItem = () => {
+const InterviewerListItem = ({ id, name, avatar, selected, setInterviewer }) => {
+  const clickHandler = (event) => setInterviewer(id);
+  const interviewersClass = cx('interviewers__item', {
+    'interviewers__item--selected': selected,
+  });
+
   return (
-    <li className="interviewers__item">
-      <img
-        className="interviewers__item-image"
-        src="https://i.imgur.com/LpaY82x.png"
-        alt="Sylvia Palmer"
-      />
-      Sylvia Palmer
+    <li onClick={clickHandler} className={interviewersClass}>
+      <img className="interviewers__item-image" src={avatar} alt={name} />
+      {selected && name}
     </li>
   );
 };
