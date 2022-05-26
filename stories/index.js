@@ -58,9 +58,11 @@ storiesOf('DayList', module)
   .addParameters({
     backgrounds: [{ name: 'dark', value: '#222f3e', default: true }],
   })
-  .add('Monday', () => <DayList days={days} day={'Monday'} setDay={action('setDay')} />)
-  .add('Tuesday', () => <DayList days={days} day={'Tuesday'} setDay={action('setDay')} />)
-  .add('Wednesday', () => <DayList days={days} day={'Wednesday'} setDay={action('setDay')} />);
+  .add('Monday', () => <DayList days={days} selectedDay={'Monday'} onChange={action('setDay')} />)
+  .add('Tuesday', () => <DayList days={days} selectedDay={'Tuesday'} onChange={action('setDay')} />)
+  .add('Wednesday', () => (
+    <DayList days={days} selectedDay={'Wednesday'} onChange={action('setDay')} />
+  ));
 
 const interviewer = {
   id: 1,
@@ -105,11 +107,11 @@ storiesOf('InterviewerList', module)
     backgrounds: [{ name: 'dark', value: '#222f3e', default: true }],
   })
   .add('Initial', () => <InterviewerList interviewers={interviewers} />)
-  .add('Selected', () => <InterviewerList interviewers={interviewers} interviewer={3} />)
+  .add('Selected', () => <InterviewerList interviewers={interviewers} selectedInterviewerId={3} />)
   .add('Clickable', () => (
     <InterviewerListItem
       name={interviewer.name}
       avatar={interviewer.avatar}
-      setInterviewer={() => action('setInterviewer')(interviewer.id)}
+      onChange={() => action('setInterviewer')(interviewer.id)}
     />
   ));
