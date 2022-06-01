@@ -17,7 +17,7 @@ export default function Application(props) {
 
   const setDay = (day) => setState((prevState) => ({ ...prevState, day }));
   const dailyAppointments = getAppointmentsForDay(state, state.day);
-
+  const interviewers = getInterviewersForDay(state, state.day);
   const schedule = dailyAppointments.map(({ id, time, interview }) => {
     return <Appointment key={id} id={id} time={time} interview={getInterview(state, interview)} />;
   });
