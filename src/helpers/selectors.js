@@ -5,3 +5,15 @@ export const getAppointmentsForDay = (state, selectedDay) => {
     ? found?.appointments?.map((appointmentId) => state.appointments[appointmentId])
     : [];
 };
+
+export const getInterview = (state, interview) => {
+  const interviewerID = interview?.interviewer;
+  const interviewerData = state.interviewers[interviewerID];
+
+  const modifiedInterview = {
+    ...interview,
+    interviewer: interviewerData,
+  };
+
+  return interviewerID ? modifiedInterview : null;
+};
